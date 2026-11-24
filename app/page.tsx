@@ -66,15 +66,15 @@ export default function Home() {
           <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center gap-8 px-6 pb-12">
             <p className="eyebrow w-fit rounded-full border-2 border-cacao bg-sable px-3 py-1">Cotonou, Bénin · Tech de santé et de bien-être</p>
 
-            <div className="grid items-end gap-8 md:grid-cols-[1.35fr_1fr] md:gap-12">
-              <h1 id="hero-t" className="text-[clamp(3.5rem,11vw,8.5rem)] leading-[0.92]">
+            <div className="grid items-end gap-8 md:grid-cols-[1fr_1fr] md:gap-12">
+              <h1 id="hero-t" className="text-[clamp(2.75rem,8vw,5.5rem)] leading-[0.95]">
                 Antonella
                 <br />
                 Tamadaho
               </h1>
 
               <div className="pb-2">
-                <p className="text-xl">
+                <p className="text-xl md:text-2xl">
                   Développeuse full-stack, web et mobile, community manager et co-fondatrice de{" "}
                   <a
                     href="https://unusuall.online"
@@ -86,7 +86,7 @@ export default function Home() {
                   </a>
                   .
                 </p>
-                <p className="mt-3 text-cacao/75">
+                <p className="mt-3 text-lg text-cacao/75">
                   Des outils numériques pour la santé et la santé mentale, pensés pour les réalités du Bénin : connexions lentes, petits
                   écrans, usages locaux.
                 </p>
