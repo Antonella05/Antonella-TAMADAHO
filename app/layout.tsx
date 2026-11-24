@@ -1,9 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import "@fontsource/poppins/latin-300.css";
-import "@fontsource/poppins/latin-400.css";
-import "@fontsource/poppins/latin-600.css";
-import "@fontsource/poppins/latin-700.css";
-import "@fontsource/poppins/latin-800.css";
+import "@fontsource/space-grotesk/latin-400.css";
+import "@fontsource/space-grotesk/latin-500.css";
+import "@fontsource/space-grotesk/latin-700.css";
 import "@fontsource/lora/latin-400-italic.css";
 import "./globals.css";
 
@@ -26,8 +24,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#1F100A",
-  colorScheme: "dark",
+  themeColor: "#FBF4EA",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

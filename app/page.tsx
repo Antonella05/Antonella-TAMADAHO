@@ -1,17 +1,17 @@
 const LINKEDIN = "https://www.linkedin.com/in/antonella-tamadaho";
 const GITHUB = "https://github.com/Antonella05";
+const EMAIL = "antonellatamadaho@gmail.com";
 
-// Tracé d'ECG (licence graphique) : ligne de base et quatre battements
-const ECG_PATH =
-  "M0 75 L80 75 Q130 60 180 75 L215 82 L245 15 L275 95 L305 75 Q390 55 470 75 " +
-  "L560 75 Q610 60 660 75 L695 82 L725 30 L755 95 L785 75 Q870 55 950 75 L1200 75";
+// Tracé d'ECG (licence graphique)
+const ECG_PATH = "M0 150 L90 150 L120 150 L140 120 L160 150 L185 160 L205 40 L235 250 L255 150 L280 150 Q310 110 340 150 L400 150";
+const HEART_PATH =
+  "M200 330 L180 312 C118 255 78 218 78 172 C78 136 106 108 142 108 C166 108 188 120 200 140 C212 120 234 108 258 108 C294 108 322 136 322 172 C322 218 282 255 220 312 Z";
 
 const STACK = ["React", "TypeScript", "Laravel", "Flutter", "React Native", "Tailwind"];
 
 const FACTS = [
   { value: "4", label: "hackathons, 4 distinctions" },
   { value: "3", label: "langues : français, anglais, fon" },
-  { value: "2026", label: "Social Impact Award, Pega GenAI Blueprint, Dakar" },
 ];
 
 const PROJECTS = [
@@ -80,8 +80,8 @@ function Heart({ className = "" }: { className?: string }) {
     <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
       <path
         d="M32 49l-3.2-2.9C18.6 36.8 12 30.8 12 23.4 12 17.5 16.6 13 22.4 13c3.3 0 6.4 1.5 8.4 4 .4.5.8 1 1.2 1.6.4-.6.8-1.1 1.2-1.6 2-2.5 5.1-4 8.4-4C47.4 13 52 17.5 52 23.4c0 7.4-6.6 13.4-16.8 22.7L32 49z"
-        fill="none"
-        stroke="currentColor"
+        fill="currentColor"
+        stroke="#1f100a"
         strokeWidth="3"
         strokeLinejoin="round"
       />
@@ -89,180 +89,239 @@ function Heart({ className = "" }: { className?: string }) {
   );
 }
 
-function Section({ id, eyebrow, title, children }: { id: string; eyebrow: string; title: string; children: React.ReactNode }) {
+function Title({ id, eyebrow, children, light = false }: { id: string; eyebrow: string; children: React.ReactNode; light?: boolean }) {
   return (
-    <section id={id} aria-labelledby={`${id}-t`} className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-      <p className="eyebrow reveal">{eyebrow}</p>
-      <h2 id={`${id}-t`} className="reveal mt-3 mb-10 text-4xl font-bold md:text-5xl">
-        {title}
+    <div className="reveal mb-12">
+      <p className={`eyebrow rounded-full border-2 px-3 py-1 ${light ? "border-creme text-creme" : "border-cacao bg-or"}`}>{eyebrow}</p>
+      <h2 id={id} className="mt-5 text-5xl md:text-7xl">
+        {children}
       </h2>
-      {children}
-    </section>
+    </div>
   );
 }
 
 export default function Home() {
+  const marquee = [...STACK, ...STACK, ...STACK, ...STACK];
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-20 border-b border-or/15 bg-cacao/80 backdrop-blur">
-        <nav aria-label="Navigation principale" className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3">
-          <a href="#top" className="flex items-center gap-2 font-semibold text-or no-underline">
-            <Heart className="heart h-7 w-7" />
-            Antonella T.
+      <header className="fixed inset-x-0 top-0 z-30 px-4 pt-4">
+        <nav
+          aria-label="Navigation principale"
+          className="mx-auto flex max-w-5xl items-center justify-between rounded-full border-[2.5px] border-cacao bg-creme/95 px-5 py-2 shadow-[4px_4px_0_#1f100a] backdrop-blur"
+        >
+          <a href="#top" className="flex items-center gap-2 text-lg font-bold no-underline">
+            <Heart className="heart h-8 w-8 text-or" />
+            ANTONELLA.T
           </a>
-          <ul className="hidden gap-7 text-sm text-sable md:flex">
+          <ul className="hidden gap-6 text-sm font-medium md:flex">
             {[
               ["Projets", "#projets"],
               ["Palmarès", "#palmares"],
               ["Méthode", "#methode"],
-              ["Contact", "#contact"],
             ].map(([label, href]) => (
               <li key={href}>
-                <a href={href} className="no-underline hover:text-or">
+                <a href={href} className="no-underline hover:underline hover:decoration-2 hover:underline-offset-4">
                   {label}
                 </a>
               </li>
             ))}
           </ul>
+          <a href="#contact" className="rounded-full bg-cacao px-4 py-1.5 text-sm font-bold text-or no-underline">
+            Me contacter
+          </a>
         </nav>
       </header>
 
       <main id="top">
         {/* Accueil */}
-        <section className="relative flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-24 pb-16">
-          <div className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 opacity-30 md:opacity-45" aria-hidden="true">
-            <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="h-40 w-full md:h-56">
-              <path d={ECG_PATH} pathLength={1} className="ecg-line" />
-            </svg>
-          </div>
-
-          <div className="relative mx-auto w-full max-w-6xl">
-            <p className="eyebrow">Cotonou, Bénin · Tech de santé et de bien-être</p>
-            <h1 className="mt-4 text-6xl font-extrabold md:text-8xl">Antonella Tamadaho</h1>
-            <p className="mt-6 max-w-2xl text-xl text-sable">
-              Développeuse full-stack, web et mobile, et gestionnaire de projets informatiques chez UNUSUALL.
-            </p>
-            <p className="quote mt-6 text-3xl text-or">Le code au service de l’humain.</p>
-            <p className="mt-4 max-w-2xl text-creme/90">
-              Je conçois des outils numériques pour la santé et la santé mentale, pensés pour les réalités du Bénin : connexions lentes,
-              petits écrans, usages locaux.
-            </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <a href="#projets" className="btn btn-gold">
-                Voir mes projets
-              </a>
-              <a href="#contact" className="btn btn-ghost">
-                Me contacter
-              </a>
+        <section aria-labelledby="hero-t" className="relative overflow-hidden px-6 pt-32 pb-20 md:pt-40">
+          <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.2fr_0.8fr]">
+            <div>
+              <p className="eyebrow rounded-full border-2 border-cacao bg-sable px-3 py-1">Cotonou, Bénin · Tech de santé et de bien-être</p>
+              <h1 id="hero-t" className="mt-6 text-6xl md:text-[7.5rem]">
+                Antonella
+                <br />
+                <span className="relative inline-block">
+                  Tamadaho
+                  <svg viewBox="0 0 400 20" preserveAspectRatio="none" className="absolute -bottom-2 left-0 h-3 w-full text-or" aria-hidden="true">
+                    <path d="M2 14 Q 60 2 120 12 T 240 10 T 398 8" fill="none" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
+                  </svg>
+                </span>
+              </h1>
+              <p className="mt-8 max-w-xl text-xl">
+                Développeuse full-stack, web et mobile, et gestionnaire de projets informatiques chez UNUSUALL.
+              </p>
+              <p className="quote mt-5 text-3xl text-cuivre">Le code au service de l’humain.</p>
+              <p className="mt-4 max-w-xl text-cacao/80">
+                Je conçois des outils numériques pour la santé et la santé mentale, pensés pour les réalités du Bénin : connexions lentes,
+                petits écrans, usages locaux.
+              </p>
+              <div className="mt-9 flex flex-wrap gap-4">
+                <a href="#projets" className="btn btn-gold">
+                  Voir mes projets →
+                </a>
+                <a href="#contact" className="btn btn-white">
+                  Me contacter
+                </a>
+              </div>
             </div>
-            <ul className="mt-12 flex flex-wrap gap-2" aria-label="Technologies">
-              {STACK.map((s) => (
-                <li key={s} className="chip">
-                  {s}
+
+            <div className="relative mx-auto w-full max-w-md">
+              <svg viewBox="0 0 400 400" className="float w-full" role="img" aria-label="Un cœur traversé par une ligne d’électrocardiogramme">
+                <circle cx="200" cy="200" r="188" fill="#d4b483" stroke="#1f100a" strokeWidth="5" />
+                <path d={HEART_PATH} fill="#fbf4ea" stroke="#1f100a" strokeWidth="5" strokeLinejoin="round" />
+                <path d={ECG_PATH} pathLength={1} className="ecg-line" transform="translate(0 20)" />
+              </svg>
+              <svg viewBox="0 0 200 200" className="spin-slow absolute -right-4 -bottom-6 h-36 w-36 md:h-44 md:w-44" aria-hidden="true">
+                <circle cx="100" cy="100" r="98" fill="#6b3a22" stroke="#1f100a" strokeWidth="4" />
+                <defs>
+                  <path id="ring" d="M100 100 m-68 0 a68 68 0 1 1 136 0 a68 68 0 1 1 -136 0" />
+                </defs>
+                <text fill="#fbf4ea" fontSize="17" fontWeight="700" letterSpacing="3">
+                  <textPath href="#ring">SANTÉ · BIEN-ÊTRE · BÉNIN · CODE ·</textPath>
+                </text>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        {/* Technologies */}
+        <div className="marquee -rotate-1 border-y-[2.5px] border-cacao bg-cafe py-4 text-or" aria-label="Technologies">
+          <ul className="marquee-track text-2xl font-bold">
+            {marquee.map((s, i) => (
+              <li key={i} className="flex items-center gap-12" aria-hidden={i >= STACK.length ? "true" : undefined}>
+                {s} <span aria-hidden="true">✦</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Repères */}
+        <section aria-label="Repères" className="px-6 py-20">
+          <dl className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
+            {FACTS.map((f) => (
+              <div key={f.label} className="sticker reveal !bg-sable">
+                <dt className="text-7xl font-bold">{f.value}</dt>
+                <dd className="mt-2 text-lg font-medium">{f.label}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+
+        {/* Pourquoi */}
+        <section aria-labelledby="pourquoi-t" id="pourquoi" className="bg-sable px-6 py-24">
+          <div className="mx-auto max-w-4xl">
+            <Title id="pourquoi-t" eyebrow="Pourquoi je fais ça">
+              Une vocation née d’un silence
+            </Title>
+            <blockquote className="quote reveal border-l-[6px] border-cuivre pl-6 text-2xl md:text-3xl">
+              À 13 ans, au CNHUP de Cotonou, un homme enfermé m’a demandé de dire au docteur que l’animal qu’on avait enfermé voulait être
+              libéré. Personne ne m’a écoutée. Ce silence est devenu ma vocation : rendre leur place, par le code et par les mots, à ceux
+              que l’on fait taire.
+            </blockquote>
+          </div>
+        </section>
+
+        {/* Projets */}
+        <section aria-labelledby="projets-t" id="projets" className="px-6 py-24">
+          <div className="mx-auto max-w-6xl">
+            <Title id="projets-t" eyebrow="Projets">
+              Ce que j’ai construit
+            </Title>
+            <ul className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {PROJECTS.map((p) => (
+                <li key={p.title} className="sticker reveal flex flex-col">
+                  <p className="eyebrow text-cuivre">{p.tag}</p>
+                  <h3 className="mt-2 text-2xl">{p.title}</h3>
+                  <p className="mt-3 flex-1 text-cacao/85">{p.text}</p>
+                  {p.stack.length > 0 && (
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {p.stack.map((s) => (
+                        <li key={s} className="chip">
+                          {s}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <ul className="reveal mt-14 flex flex-wrap gap-3">
+              {MORE.map((m) => (
+                <li key={m.name} className="chip !bg-sable !py-1.5">
+                  <span className="font-bold">{m.name}</span> · {m.text}
                 </li>
               ))}
             </ul>
           </div>
         </section>
 
-        {/* Repères */}
-        <div className="border-y border-or/15 bg-cafe/40">
-          <dl className="mx-auto grid max-w-6xl gap-8 px-6 py-14 md:grid-cols-3">
-            {FACTS.map((f) => (
-              <div key={f.label} className="reveal">
-                <dt className="text-5xl font-extrabold text-or">{f.value}</dt>
-                <dd className="mt-2 text-sable">{f.label}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-
-        {/* Pourquoi */}
-        <Section id="pourquoi" eyebrow="Pourquoi je fais ça" title="Une vocation née d’un silence">
-          <blockquote className="quote reveal max-w-3xl text-2xl text-sable md:text-3xl">
-            À 13 ans, au CNHUP de Cotonou, un homme enfermé m’a demandé de dire au docteur que l’animal qu’on avait enfermé voulait être
-            libéré. Personne ne m’a écoutée. Ce silence est devenu ma vocation : rendre leur place, par le code et par les mots, à ceux
-            que l’on fait taire.
-          </blockquote>
-        </Section>
-
-        {/* Projets */}
-        <Section id="projets" eyebrow="Projets" title="Ce que j’ai construit">
-          <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {PROJECTS.map((p) => (
-              <li key={p.title} className="card reveal flex flex-col">
-                <p className="eyebrow">{p.tag}</p>
-                <h3 className="mt-2 text-2xl font-bold">{p.title}</h3>
-                <p className="mt-3 flex-1 text-creme/85">{p.text}</p>
-                {p.stack.length > 0 && (
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {p.stack.map((s) => (
-                      <li key={s} className="chip">
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </li>
-            ))}
-          </ul>
-          <ul className="reveal mt-10 grid gap-x-8 gap-y-3 text-sm text-sable sm:grid-cols-2">
-            {MORE.map((m) => (
-              <li key={m.name}>
-                <span className="font-semibold text-or">{m.name}</span> · {m.text}
-              </li>
-            ))}
-          </ul>
-        </Section>
-
         {/* Palmarès */}
-        <Section id="palmares" eyebrow="Palmarès" title="Hackathons">
-          <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {AWARDS.map((a) => (
-              <li key={a.name} className="card reveal">
-                <p className="eyebrow">{a.rank}</p>
-                <h3 className="mt-2 text-xl font-bold">{a.name}</h3>
-                <p className="mt-2 text-sm text-sable">{a.detail}</p>
-              </li>
-            ))}
-          </ol>
-          <p className="reveal mt-8 text-sable">
-            Certifiée <span className="font-semibold text-or">TITA by MTN</span> : top community management et création de contenus
-            (juillet 2026).
-          </p>
-        </Section>
+        <section aria-labelledby="palmares-t" id="palmares" className="bg-cuivre px-6 py-24 text-creme">
+          <div className="mx-auto max-w-6xl">
+            <Title id="palmares-t" eyebrow="Palmarès" light>
+              Hackathons
+            </Title>
+            <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {AWARDS.map((a) => (
+                <li key={a.name} className="sticker reveal !bg-or text-cacao">
+                  <p className="eyebrow">{a.rank}</p>
+                  <h3 className="mt-2 text-xl">{a.name}</h3>
+                  <p className="mt-2 text-sm">{a.detail}</p>
+                </li>
+              ))}
+            </ol>
+            <p className="reveal mt-10 text-lg">
+              Certifiée <span className="font-bold text-or">TITA by MTN</span> : top community management et création de contenus (juillet
+              2026).
+            </p>
+          </div>
+        </section>
 
         {/* Méthode */}
-        <Section id="methode" eyebrow="Protocole" title="Ma méthode">
-          <ol className="grid gap-5 md:grid-cols-5">
-            {PROTOCOL.map((s, i) => (
-              <li key={s.name} className="card reveal">
-                <p className="text-3xl font-extrabold text-brun" aria-hidden="true">
-                  {i + 1}
-                </p>
-                <h3 className="mt-1 text-lg font-bold">{s.name}</h3>
-                <p className="mt-2 text-sm text-sable">{s.text}</p>
-              </li>
-            ))}
-          </ol>
-        </Section>
+        <section aria-labelledby="methode-t" id="methode" className="px-6 py-24">
+          <div className="mx-auto max-w-6xl">
+            <Title id="methode-t" eyebrow="Protocole">
+              Ma méthode
+            </Title>
+            <ol className="grid gap-6 md:grid-cols-5">
+              {PROTOCOL.map((s, i) => (
+                <li key={s.name} className="sticker reveal">
+                  <p className="text-5xl font-bold text-brun" aria-hidden="true">
+                    {i + 1}
+                  </p>
+                  <h3 className="mt-2 text-lg">{s.name}</h3>
+                  <p className="mt-2 text-sm text-cacao/80">{s.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
 
         {/* Contact */}
-        <Section id="contact" eyebrow="Contact" title="Parlons de votre projet">
-          <p className="reveal max-w-2xl text-xl text-sable">Ouverte aux missions, collaborations et CDI. Cotonou, remote possible.</p>
-          <div className="reveal mt-8 flex flex-wrap gap-3">
-            <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="btn btn-gold">
-              LinkedIn<span className="sr-only"> (ouvre un nouvel onglet)</span>
-            </a>
-            <a href={GITHUB} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
-              GitHub<span className="sr-only"> (ouvre un nouvel onglet)</span>
-            </a>
+        <section aria-labelledby="contact-t" id="contact" className="bg-or px-6 py-24">
+          <div className="mx-auto max-w-4xl text-center">
+            <Heart className="heart mx-auto mb-6 h-16 w-16 text-creme" />
+            <h2 id="contact-t" className="text-5xl md:text-8xl">
+              Parlons de votre projet
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-xl">Ouverte aux missions, collaborations et CDI. Cotonou, remote possible.</p>
+            <div className="mt-10 flex flex-wrap justify-center gap-4">
+              <a href={`mailto:${EMAIL}`} className="btn btn-white">
+                {EMAIL}
+              </a>
+              <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="btn !bg-cacao !text-or">
+                LinkedIn<span className="sr-only"> (ouvre un nouvel onglet)</span>
+              </a>
+              <a href={GITHUB} target="_blank" rel="noopener noreferrer" className="btn btn-white">
+                GitHub<span className="sr-only"> (ouvre un nouvel onglet)</span>
+              </a>
+            </div>
           </div>
-        </Section>
+        </section>
       </main>
 
-      <footer className="border-t border-or/15 px-6 py-10 text-center text-sm text-sable">
-        <Heart className="heart mx-auto mb-3 h-8 w-8 text-or" />
+      <footer className="bg-cacao px-6 py-8 text-center text-sm text-sable">
         <p>© {new Date().getFullYear()} Antonella Tamadaho · Le code au service de l’humain.</p>
       </footer>
     </>
