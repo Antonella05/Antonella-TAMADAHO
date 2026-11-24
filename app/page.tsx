@@ -106,15 +106,6 @@ export default function Home() {
                 <path d={HEART_PATH} fill="#fbf4ea" stroke="#1f100a" strokeWidth="5" strokeLinejoin="round" />
                 <path d={ECG_PATH} pathLength={1} className="ecg-line" transform="translate(0 20)" />
               </svg>
-              <svg viewBox="0 0 200 200" className="spin-slow absolute -right-4 -bottom-6 h-36 w-36 md:h-44 md:w-44" aria-hidden="true">
-                <circle cx="100" cy="100" r="98" fill="#6b3a22" stroke="#1f100a" strokeWidth="4" />
-                <defs>
-                  <path id="ring" d="M100 100 m-68 0 a68 68 0 1 1 136 0 a68 68 0 1 1 -136 0" />
-                </defs>
-                <text fill="#fbf4ea" fontSize="17" fontWeight="700" letterSpacing="3">
-                  <textPath href="#ring">SANTÉ · BIEN-ÊTRE · BÉNIN · CODE ·</textPath>
-                </text>
-              </svg>
             </div>
           </div>
         </section>
