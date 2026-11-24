@@ -119,17 +119,15 @@ export default function Home() {
         <section aria-labelledby="pourquoi-t" id="pourquoi" className="bg-sable px-6 py-14">
           <div className="mx-auto max-w-4xl">
             <Title id="pourquoi-t" eyebrow="Pourquoi je fais ça">
-              Une vocation née d’un silence
+              Comprendre pour aider
             </Title>
             <div className="reveal space-y-5 border-l-[6px] border-cuivre pl-6">
               <p className="quote text-2xl md:text-3xl">
-                J’avais 13 ans. Au CNHUP de Cotonou, un homme enfermé m’a demandé de dire au docteur que l’animal qu’on avait enfermé voulait
-                être libéré.
+                J’ai côtoyé des personnes qui vivaient avec des troubles psychologiques, et j’ai cherché à comprendre cet univers.
               </p>
               <p className="text-lg md:text-xl">
-                Ce jour-là, j’ai compris combien il est important d’écouter ceux que l’on enferme et que l’on fait taire. C’est devenu ma
-                vocation : leur rendre leur place. Je le fais par <strong>le code</strong>, avec des outils pensés pour la santé et la santé
-                mentale, et par <strong>les mots</strong>, avec mes textes et mes contenus.
+                Aujourd’hui, j’en suis convaincue : je veux aider les gens dans ce domaine. Je le fais par <strong>le code</strong>, avec des
+                outils pensés pour la santé et la santé mentale, et par <strong>les mots</strong>, avec mes textes et mes contenus.
               </p>
             </div>
           </div>
