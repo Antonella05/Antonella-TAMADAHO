@@ -126,11 +126,10 @@ export default function Home() {
                 J’avais 13 ans. Au CNHUP de Cotonou, un homme enfermé m’a demandé de dire au docteur que l’animal qu’on avait enfermé voulait
                 être libéré.
               </p>
-              <p className="quote text-2xl md:text-3xl">Personne ne m’a écoutée.</p>
               <p className="text-lg md:text-xl">
-                Ce silence ne m’a plus quittée : il est devenu ma vocation. Aujourd’hui, je veux rendre leur place à ceux que l’on fait taire.
-                Je le fais par <strong>le code</strong>, avec des outils pensés pour la santé et la santé mentale, et par{" "}
-                <strong>les mots</strong>, avec mes textes et mes contenus.
+                Ce jour-là, j’ai compris combien il est important d’écouter ceux que l’on enferme et que l’on fait taire. C’est devenu ma
+                vocation : leur rendre leur place. Je le fais par <strong>le code</strong>, avec des outils pensés pour la santé et la santé
+                mentale, et par <strong>les mots</strong>, avec mes textes et mes contenus.
               </p>
             </div>
           </div>
