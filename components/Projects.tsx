@@ -63,7 +63,7 @@ export function Projects() {
 
   return (
     <>
-      <div role="group" aria-label="Filtrer les projets" className="reveal mb-10 flex flex-wrap gap-2">
+      <div role="group" aria-label="Filtrer les projets" className="reveal mb-6 flex flex-wrap gap-2">
         {FILTERS.map((f) => (
           <button
             key={f}
@@ -79,7 +79,7 @@ export function Projects() {
         ))}
       </div>
 
-      <ul className="grid gap-8 md:grid-cols-2 lg:grid-cols-3" aria-live="polite">
+      <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-3" aria-live="polite">
         {shown.map((p) => (
           <li key={p.title} className="sticker flex flex-col">
             <p className="eyebrow text-cuivre">{p.tag}</p>
@@ -99,7 +99,7 @@ export function Projects() {
       </ul>
 
       {filter === "Tous" && (
-        <ul className="mt-14 flex flex-wrap gap-3">
+        <ul className="mt-8 flex flex-wrap gap-3">
           {MORE.map((m) => (
             <li key={m.name} className="chip !bg-sable !py-1.5">
               <span className="font-bold">{m.name}</span> · {m.text}

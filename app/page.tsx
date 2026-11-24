@@ -11,7 +11,7 @@ const ECG_PATH = "M0 150 L90 150 L120 150 L140 120 L160 150 L185 160 L205 40 L23
 const HEART_PATH =
   "M200 330 L180 312 C118 255 78 218 78 172 C78 136 106 108 142 108 C166 108 188 120 200 140 C212 120 234 108 258 108 C294 108 322 136 322 172 C322 218 282 255 220 312 Z";
 
-const STACK = ["React", "TypeScript", "Laravel", "Flutter", "React Native", "Tailwind"];
+const STACK = ["React", "TypeScript", "Laravel", "Flutter", "React Native", "Tailwind", "Community management"];
 
 const FACTS = [
   { value: "4", label: "hackathons, 4 distinctions" },
@@ -49,9 +49,9 @@ function Heart({ className = "" }: { className?: string }) {
 
 function Title({ id, eyebrow, children, light = false }: { id: string; eyebrow: string; children: React.ReactNode; light?: boolean }) {
   return (
-    <div className="reveal mb-12">
+    <div className="reveal mb-8">
       <p className={`eyebrow rounded-full border-2 px-3 py-1 ${light ? "border-creme text-creme" : "border-cacao bg-or"}`}>{eyebrow}</p>
-      <h2 id={id} className="mt-5 text-5xl md:text-7xl">
+      <h2 id={id} className="mt-4 text-4xl md:text-5xl">
         {children}
       </h2>
     </div>
@@ -68,11 +68,11 @@ export default function Home() {
 
       <main id="top">
         {/* Accueil */}
-        <section aria-labelledby="hero-t" className="relative overflow-hidden px-6 pt-32 pb-20 md:pt-40">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.2fr_0.8fr]">
+        <section aria-labelledby="hero-t" className="relative overflow-hidden px-6 pt-24 pb-10 md:pt-28">
+          <div className="mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-[1.2fr_0.8fr]">
             <div className="order-last md:order-first">
               <p className="eyebrow rounded-full border-2 border-cacao bg-sable px-3 py-1">Cotonou, Bénin · Tech de santé et de bien-être</p>
-              <h1 id="hero-t" className="mt-6 text-6xl md:text-[7.5rem]">
+              <h1 id="hero-t" className="mt-5 text-5xl md:text-7xl">
                 Antonella
                 <br />
                 <span className="relative inline-block">
@@ -82,15 +82,15 @@ export default function Home() {
                   </svg>
                 </span>
               </h1>
-              <p className="mt-8 max-w-xl text-xl">
-                Développeuse full-stack, web et mobile, et gestionnaire de projets informatiques chez UNUSUALL.
+              <p className="mt-5 max-w-xl text-lg">
+                Développeuse full-stack, web et mobile, community manager et gestionnaire de projets informatiques chez UNUSUALL.
               </p>
               <p className="quote mt-5 text-3xl text-cuivre">Ma technologie au service de la santé mentale.</p>
               <p className="mt-4 max-w-xl text-cacao/80">
                 Je conçois des outils numériques pour la santé et la santé mentale, pensés pour les réalités du Bénin : connexions lentes,
                 petits écrans, usages locaux.
               </p>
-              <div className="mt-9 flex flex-wrap gap-4">
+              <div className="mt-6 flex flex-wrap gap-3">
                 <a href="#projets" className="btn btn-gold">
                   Voir mes projets →
                 </a>
@@ -120,7 +120,7 @@ export default function Home() {
         </section>
 
         {/* Technologies */}
-        <div className="marquee -rotate-1 border-y-[2.5px] border-cacao bg-cafe py-4 text-or" aria-label="Technologies">
+        <div className="marquee -rotate-1 border-y-[2.5px] border-cacao bg-cafe py-4 text-or" aria-label="Compétences">
           <ul className="marquee-track text-2xl font-bold">
             {marquee.map((s, i) => (
               <li key={i} className="flex items-center gap-12" aria-hidden={i >= STACK.length ? "true" : undefined}>
@@ -131,11 +131,11 @@ export default function Home() {
         </div>
 
         {/* Repères */}
-        <section aria-label="Repères" className="px-6 py-20">
-          <dl className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2">
+        <section aria-label="Repères" className="px-6 py-12">
+          <dl className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2">
             {FACTS.map((f) => (
               <div key={f.label} className="sticker reveal !bg-sable">
-                <dt className="text-7xl font-bold">{f.value}</dt>
+                <dt className="text-5xl font-bold">{f.value}</dt>
                 <dd className="mt-2 text-lg font-medium">{f.label}</dd>
               </div>
             ))}
@@ -143,7 +143,7 @@ export default function Home() {
         </section>
 
         {/* Pourquoi */}
-        <section aria-labelledby="pourquoi-t" id="pourquoi" className="bg-sable px-6 py-24">
+        <section aria-labelledby="pourquoi-t" id="pourquoi" className="bg-sable px-6 py-14">
           <div className="mx-auto max-w-4xl">
             <Title id="pourquoi-t" eyebrow="Pourquoi je fais ça">
               Une vocation née d’un silence
@@ -157,7 +157,7 @@ export default function Home() {
         </section>
 
         {/* Projets */}
-        <section aria-labelledby="projets-t" id="projets" className="px-6 py-24">
+        <section aria-labelledby="projets-t" id="projets" className="px-6 py-14">
           <div className="mx-auto max-w-6xl">
             <Title id="projets-t" eyebrow="Projets">
               Ce que j’ai construit
@@ -167,12 +167,12 @@ export default function Home() {
         </section>
 
         {/* Palmarès */}
-        <section aria-labelledby="palmares-t" id="palmares" className="bg-cuivre px-6 py-24 text-creme">
+        <section aria-labelledby="palmares-t" id="palmares" className="bg-cuivre px-6 py-14 text-creme">
           <div className="mx-auto max-w-6xl">
             <Title id="palmares-t" eyebrow="Palmarès" light>
               Hackathons
             </Title>
-            <ol className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {AWARDS.map((a) => (
                 <li key={a.name} className="sticker reveal !bg-or text-cacao">
                   <p className="eyebrow">{a.rank}</p>
@@ -181,7 +181,7 @@ export default function Home() {
                 </li>
               ))}
             </ol>
-            <p className="reveal mt-10 text-lg">
+            <p className="reveal mt-6 text-lg">
               Certifiée <span className="font-bold text-or">TITA by MTN</span> : top community management et création de contenus (juillet
               2026).
             </p>
@@ -189,15 +189,15 @@ export default function Home() {
         </section>
 
         {/* Méthode */}
-        <section aria-labelledby="methode-t" id="methode" className="px-6 py-24">
+        <section aria-labelledby="methode-t" id="methode" className="px-6 py-14">
           <div className="mx-auto max-w-6xl">
             <Title id="methode-t" eyebrow="Protocole">
               Ma méthode
             </Title>
-            <ol className="grid gap-6 md:grid-cols-5">
+            <ol className="grid gap-4 md:grid-cols-5">
               {PROTOCOL.map((s, i) => (
                 <li key={s.name} className="sticker reveal">
-                  <p className="text-5xl font-bold text-brun" aria-hidden="true">
+                  <p className="text-4xl font-bold text-brun" aria-hidden="true">
                     {i + 1}
                   </p>
                   <h3 className="mt-2 text-lg">{s.name}</h3>
@@ -209,14 +209,14 @@ export default function Home() {
         </section>
 
         {/* Contact */}
-        <section aria-labelledby="contact-t" id="contact" className="bg-or px-6 py-24">
+        <section aria-labelledby="contact-t" id="contact" className="bg-or px-6 py-14">
           <div className="mx-auto max-w-4xl text-center">
-            <Heart className="heart mx-auto mb-6 h-16 w-16 text-creme" />
-            <h2 id="contact-t" className="text-5xl md:text-8xl">
+            <Heart className="heart mx-auto mb-4 h-12 w-12 text-creme" />
+            <h2 id="contact-t" className="text-4xl md:text-6xl">
               Parlons de votre projet
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-xl">Ouverte aux missions, collaborations et CDI. Cotonou, remote possible.</p>
-            <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <p className="mx-auto mt-4 max-w-xl text-lg">Ouverte aux missions, collaborations et CDI. Cotonou, remote possible.</p>
+            <div className="mt-7 flex flex-wrap justify-center gap-3">
               <CopyEmail email={EMAIL} />
               <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="btn !bg-cacao !text-or">
                 LinkedIn<span className="sr-only"> (ouvre un nouvel onglet)</span>

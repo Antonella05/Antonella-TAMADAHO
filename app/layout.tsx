@@ -6,7 +6,7 @@ import "@fontsource/lora/latin-400-italic.css";
 import "./globals.css";
 
 const description =
-  "Développeuse full-stack à Cotonou, Bénin. Je conçois des outils numériques pour la santé et la santé mentale, pensés pour les réalités du Bénin.";
+  "Développeuse full-stack et community manager à Cotonou, Bénin. Je conçois des outils numériques pour la santé et la santé mentale, pensés pour les réalités du Bénin.";
 
 export const metadata: Metadata = {
   metadataBase: process.env.VERCEL_PROJECT_PRODUCTION_URL
