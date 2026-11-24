@@ -85,7 +85,7 @@ export default function Home() {
               <p className="mt-8 max-w-xl text-xl">
                 Développeuse full-stack, web et mobile, et gestionnaire de projets informatiques chez UNUSUALL.
               </p>
-              <p className="quote mt-5 text-3xl text-cuivre">Le code au service de l’humain.</p>
+              <p className="quote mt-5 text-3xl text-cuivre">Ma technologie au service de la santé mentale.</p>
               <p className="mt-4 max-w-xl text-cacao/80">
                 Je conçois des outils numériques pour la santé et la santé mentale, pensés pour les réalités du Bénin : connexions lentes,
                 petits écrans, usages locaux.
@@ -230,7 +230,7 @@ export default function Home() {
       </main>
 
       <footer className="bg-cacao px-6 py-8 text-center text-sm text-sable">
-        <p>© {new Date().getFullYear()} Antonella Tamadaho · Le code au service de l’humain.</p>
+        <p>© {new Date().getFullYear()} Antonella Tamadaho · Ma technologie au service de la santé mentale.</p>
       </footer>
     </>
   );
