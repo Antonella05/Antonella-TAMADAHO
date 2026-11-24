@@ -220,7 +220,64 @@ p {
   }
 }
 
+
+/* Lien d'évitement */
+.skip {
+  position: fixed;
+  left: 1rem;
+  top: -4rem;
+  z-index: 50;
+  background: var(--color-cacao);
+  color: var(--color-or);
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  font-weight: 700;
+  transition: top 0.2s;
+}
+
+.skip:focus {
+  top: 1rem;
+}
+
+/* Barre de progression de lecture (CSS pur, là où c'est supporté) */
+.progress {
+  display: none;
+}
+
+@supports (animation-timeline: scroll()) {
+  .progress {
+    display: block;
+    position: fixed;
+    inset: 0 0 auto 0;
+    height: 5px;
+    z-index: 40;
+    background: var(--color-cuivre);
+    transform-origin: left;
+    animation: grow linear both;
+    animation-timeline: scroll(root);
+  }
+  @keyframes grow {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+button {
+  cursor: pointer;
+}
+
 @media (prefers-reduced-motion: reduce) {
+  .progress {
+    display: none !important;
+  }
   html {
     scroll-behavior: auto;
   }

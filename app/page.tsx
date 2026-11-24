@@ -1,3 +1,7 @@
+import { Nav } from "@/components/Nav";
+import { Projects } from "@/components/Projects";
+import { CopyEmail } from "@/components/CopyEmail";
+
 const LINKEDIN = "https://www.linkedin.com/in/antonella-tamadaho";
 const GITHUB = "https://github.com/Antonella05";
 const EMAIL = "antonellatamadaho@gmail.com";
@@ -12,52 +16,6 @@ const STACK = ["React", "TypeScript", "Laravel", "Flutter", "React Native", "Tai
 const FACTS = [
   { value: "4", label: "hackathons, 4 distinctions" },
   { value: "3", label: "langues : français, anglais, fon" },
-];
-
-const PROJECTS = [
-  {
-    title: "DrépaForce",
-    tag: "Santé · 2026",
-    text: "Application mobile d’accompagnement des patients drépanocytaires et de leurs familles en Afrique francophone : carnet de santé, alertes de crise, mode hors-ligne, accès par SMS/USSD.",
-    stack: ["React Native"],
-  },
-  {
-    title: "Mood Diary & Escape Stress",
-    tag: "Santé mentale · 2025",
-    text: "Un journal pour suivre ses émotions et un mini-jeu pour évacuer le stress. Outils de bien-être, pas des outils médicaux.",
-    stack: [],
-  },
-  {
-    title: "TontineChain",
-    tag: "Hackathon · 2e place MIABE",
-    text: "Application mobile qui sécurise les tontines grâce à la blockchain et facilite les paiements.",
-    stack: ["Blockchain"],
-  },
-  {
-    title: "Wadunu & DibaHealth",
-    tag: "Ancrés au Bénin",
-    text: "Une plateforme pour préserver le patrimoine culinaire du Bénin (projet ENEAM) et un système de gestion de dossiers médicaux (stage chez Case&co, 2025).",
-    stack: ["Laravel"],
-  },
-  {
-    title: "Formulaires pour organisations",
-    tag: "Missions",
-    text: "Conception de formulaires et de pages web pour des processus de recrutement et d’éligibilité.",
-    stack: [],
-  },
-  {
-    title: "Éditeur collaboratif",
-    tag: "Projet perso",
-    text: "Simulation d’édition collaborative en temps réel : 3 utilisateurs simulés, résolution de conflits, latence variable, mode hors ligne.",
-    stack: ["React", "Zustand", "Tailwind"],
-  },
-];
-
-const MORE = [
-  { name: "Lex229", text: "Éducation au droit numérique pour le grand public au Bénin (Flutter)" },
-  { name: "Taoli’s", text: "Commandes d’un restaurant, 2026" },
-  { name: "Techblog", text: "Blog technologique (Flutter)" },
-  { name: "Todolist", text: "Liste de tâches (Flutter)" },
 ];
 
 const AWARDS = [
@@ -104,39 +62,15 @@ export default function Home() {
   const marquee = [...STACK, ...STACK, ...STACK, ...STACK];
   return (
     <>
-      <header className="fixed inset-x-0 top-0 z-30 px-4 pt-4">
-        <nav
-          aria-label="Navigation principale"
-          className="mx-auto flex max-w-5xl items-center justify-between rounded-full border-[2.5px] border-cacao bg-creme/95 px-5 py-2 shadow-[4px_4px_0_#1f100a] backdrop-blur"
-        >
-          <a href="#top" className="flex items-center gap-2 text-lg font-bold no-underline">
-            <Heart className="heart h-8 w-8 text-or" />
-            ANTONELLA.T
-          </a>
-          <ul className="hidden gap-6 text-sm font-medium md:flex">
-            {[
-              ["Projets", "#projets"],
-              ["Palmarès", "#palmares"],
-              ["Méthode", "#methode"],
-            ].map(([label, href]) => (
-              <li key={href}>
-                <a href={href} className="no-underline hover:underline hover:decoration-2 hover:underline-offset-4">
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <a href="#contact" className="rounded-full bg-cacao px-4 py-1.5 text-sm font-bold text-or no-underline">
-            Me contacter
-          </a>
-        </nav>
-      </header>
+      <a href="#top" className="skip">Aller au contenu</a>
+      <div className="progress" aria-hidden="true" />
+      <Nav heart={<Heart className="heart h-8 w-8 text-or" />} />
 
       <main id="top">
         {/* Accueil */}
         <section aria-labelledby="hero-t" className="relative overflow-hidden px-6 pt-32 pb-20 md:pt-40">
           <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-[1.2fr_0.8fr]">
-            <div>
+            <div className="order-last md:order-first">
               <p className="eyebrow rounded-full border-2 border-cacao bg-sable px-3 py-1">Cotonou, Bénin · Tech de santé et de bien-être</p>
               <h1 id="hero-t" className="mt-6 text-6xl md:text-[7.5rem]">
                 Antonella
@@ -166,7 +100,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative mx-auto w-full max-w-md">
+            <div className="relative mx-auto w-full max-w-[240px] md:order-last md:max-w-md">
               <svg viewBox="0 0 400 400" className="float w-full" role="img" aria-label="Un cœur traversé par une ligne d’électrocardiogramme">
                 <circle cx="200" cy="200" r="188" fill="#d4b483" stroke="#1f100a" strokeWidth="5" />
                 <path d={HEART_PATH} fill="#fbf4ea" stroke="#1f100a" strokeWidth="5" strokeLinejoin="round" />
@@ -228,31 +162,7 @@ export default function Home() {
             <Title id="projets-t" eyebrow="Projets">
               Ce que j’ai construit
             </Title>
-            <ul className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-              {PROJECTS.map((p) => (
-                <li key={p.title} className="sticker reveal flex flex-col">
-                  <p className="eyebrow text-cuivre">{p.tag}</p>
-                  <h3 className="mt-2 text-2xl">{p.title}</h3>
-                  <p className="mt-3 flex-1 text-cacao/85">{p.text}</p>
-                  {p.stack.length > 0 && (
-                    <ul className="mt-5 flex flex-wrap gap-2">
-                      {p.stack.map((s) => (
-                        <li key={s} className="chip">
-                          {s}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
-            </ul>
-            <ul className="reveal mt-14 flex flex-wrap gap-3">
-              {MORE.map((m) => (
-                <li key={m.name} className="chip !bg-sable !py-1.5">
-                  <span className="font-bold">{m.name}</span> · {m.text}
-                </li>
-              ))}
-            </ul>
+            <Projects />
           </div>
         </section>
 
@@ -307,9 +217,7 @@ export default function Home() {
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-xl">Ouverte aux missions, collaborations et CDI. Cotonou, remote possible.</p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <a href={`mailto:${EMAIL}`} className="btn btn-white">
-                {EMAIL}
-              </a>
+              <CopyEmail email={EMAIL} />
               <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className="btn !bg-cacao !text-or">
                 LinkedIn<span className="sr-only"> (ouvre un nouvel onglet)</span>
               </a>
