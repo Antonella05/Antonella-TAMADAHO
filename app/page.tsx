@@ -9,11 +9,6 @@ const EMAIL = "antonellatamadaho@gmail.com";
 
 const STACK = ["React", "TypeScript", "Laravel", "Flutter", "React Native", "Tailwind", "Community management"];
 
-const FACTS = [
-  { value: "4", label: "hackathons, 4 distinctions" },
-  { value: "3", label: "langues : français, anglais, fon" },
-];
-
 const AWARDS = [
   { rank: "Prix", name: "Social Impact Award", detail: "Pega GenAI Blueprint 2026, Dakar, avec MindBridge Africa" },
   { rank: "2e place", name: "MIABE Hackathon", detail: "TontineChain" },
@@ -112,18 +107,6 @@ export default function Home() {
             ))}
           </ul>
         </div>
-
-        {/* Repères */}
-        <section aria-label="Repères" className="px-6 py-12">
-          <dl className="mx-auto grid max-w-6xl gap-4 md:grid-cols-2">
-            {FACTS.map((f) => (
-              <div key={f.label} className="sticker reveal !bg-sable">
-                <dt className="text-5xl font-bold">{f.value}</dt>
-                <dd className="mt-2 text-lg font-medium">{f.label}</dd>
-              </div>
-            ))}
-          </dl>
-        </section>
 
         {/* Pourquoi */}
         <section aria-labelledby="pourquoi-t" id="pourquoi" className="bg-sable px-6 py-14">
