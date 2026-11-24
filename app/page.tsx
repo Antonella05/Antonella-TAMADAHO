@@ -59,44 +59,51 @@ export default function Home() {
 
       <main id="top">
         {/* Accueil */}
-        <section aria-labelledby="hero-t" className="relative flex min-h-svh flex-col overflow-hidden pt-24">
-          <div className="flex flex-1 flex-col justify-center gap-10 pb-16">
-          <div className="mx-auto max-w-6xl px-6">
-            <p className="eyebrow rounded-full border-2 border-cacao bg-sable px-3 py-1">Cotonou, Bénin · Tech de santé et de bien-être</p>
-            <h1 id="hero-t" className="mt-5 text-6xl md:text-8xl">
-              Antonella
-              <br className="md:hidden" /> Tamadaho
-            </h1>
-          </div>
+        <section
+          aria-labelledby="hero-t"
+          className="relative flex min-h-svh flex-col overflow-hidden bg-[radial-gradient(circle_at_88%_22%,rgba(212,180,131,0.4),transparent_42%)] pt-28 md:pt-24"
+        >
+          <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center gap-8 px-6 pb-12">
+            <p className="eyebrow w-fit rounded-full border-2 border-cacao bg-sable px-3 py-1">Cotonou, Bénin · Tech de santé et de bien-être</p>
 
+            <div className="grid items-end gap-8 md:grid-cols-[1.35fr_1fr] md:gap-12">
+              <h1 id="hero-t" className="text-[clamp(3.5rem,11vw,8.5rem)] leading-[0.92]">
+                Antonella
+                <br />
+                Tamadaho
+              </h1>
 
-          <div className="mx-auto grid max-w-6xl gap-6 px-6 md:grid-cols-2 md:gap-12">
-            <div>
-              <p className="text-xl md:text-2xl">
-                Développeuse full-stack, web et mobile, community manager et co-fondatrice de{" "}
-                <a href="https://unusuall.online" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-or decoration-4 underline-offset-4 hover:bg-or">
-                  UNUSUALL<span className="sr-only"> (ouvre un nouvel onglet)</span>
-                </a>
-                .
-              </p>
-              <p className="quote mt-4 text-3xl text-cuivre">Ma technologie au service de la santé mentale.</p>
-            </div>
-            <div>
-              <p className="text-cacao/80">
-                Je conçois des outils numériques pour la santé et la santé mentale, pensés pour les réalités du Bénin : connexions lentes,
-                petits écrans, usages locaux.
-              </p>
-              <div className="mt-5 flex flex-wrap gap-3">
-                <a href="#projets" className="btn btn-gold">
-                  Voir mes projets →
-                </a>
-                <a href="#contact" className="btn btn-white">
-                  Me contacter
-                </a>
+              <div className="pb-2">
+                <p className="text-xl">
+                  Développeuse full-stack, web et mobile, community manager et co-fondatrice de{" "}
+                  <a
+                    href="https://unusuall.online"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-bold underline decoration-or decoration-4 underline-offset-4 hover:bg-or"
+                  >
+                    UNUSUALL<span className="sr-only"> (ouvre un nouvel onglet)</span>
+                  </a>
+                  .
+                </p>
+                <p className="mt-3 text-cacao/75">
+                  Des outils numériques pour la santé et la santé mentale, pensés pour les réalités du Bénin : connexions lentes, petits
+                  écrans, usages locaux.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a href="#projets" className="btn btn-gold">
+                    Voir mes projets →
+                  </a>
+                  <a href="#contact" className="btn btn-white">
+                    Me contacter
+                  </a>
+                </div>
               </div>
             </div>
+
+            <p className="quote border-l-[6px] border-or pl-5 text-2xl text-cuivre sm:text-3xl md:text-4xl">Ma technologie au service de la santé mentale.</p>
           </div>
-          </div>
+
         <div className="marquee -rotate-1 mb-8 border-y-[2.5px] border-cacao bg-cafe py-4 text-or" aria-label="Compétences">
           <ul className="marquee-track text-2xl font-bold">
             {marquee.map((s, i) => (
