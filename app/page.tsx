@@ -66,14 +66,17 @@ export default function Home() {
           <div className="mx-auto flex w-full max-w-6xl flex-1 flex-col justify-center gap-8 px-6 pb-12">
             <p className="eyebrow w-fit rounded-full border-2 border-cacao bg-sable px-3 py-1">Cotonou, Bénin · Tech de santé et de bien-être</p>
 
-            <div className="grid items-end gap-8 md:grid-cols-[1fr_1fr] md:gap-12">
-              <h1 id="hero-t" className="text-[clamp(2.75rem,8vw,5.5rem)] leading-[0.95]">
-                Antonella
-                <br />
-                Tamadaho
-              </h1>
+            <div className="grid items-center gap-8 md:grid-cols-[1fr_1fr] md:gap-0">
+              <div>
+                <h1 id="hero-t" className="text-[clamp(2.75rem,8vw,5.5rem)] leading-[0.95]">
+                  Antonella
+                  <br />
+                  Tamadaho
+                </h1>
+                <p className="quote mt-6 border-l-[6px] border-or pl-4 text-2xl text-cuivre md:text-3xl">Ma technologie au service de la santé mentale.</p>
+              </div>
 
-              <div className="pb-2">
+              <div className="md:border-l-2 md:border-cacao/20 md:pl-12">
                 <p className="text-xl md:text-2xl">
                   Développeuse full-stack, web et mobile, community manager et co-fondatrice de{" "}
                   <a
@@ -101,7 +104,6 @@ export default function Home() {
               </div>
             </div>
 
-            <p className="quote border-l-[6px] border-or pl-5 text-2xl text-cuivre sm:text-3xl md:text-4xl">Ma technologie au service de la santé mentale.</p>
           </div>
 
         <div className="marquee -rotate-1 mb-8 border-y-[2.5px] border-cacao bg-cafe py-4 text-or" aria-label="Compétences">
