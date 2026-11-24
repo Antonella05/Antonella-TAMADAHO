@@ -28,11 +28,18 @@ const PROJECTS: { title: string; tag: string; cat: Exclude<Filter, "Tous">; text
     stack: ["Blockchain"],
   },
   {
-    title: "Wadunu & DibaHealth",
-    tag: "Ancrés au Bénin",
+    title: "Wadunu",
+    tag: "Bénin · Projet académique ENEAM",
     cat: "Bénin",
-    text: "Une plateforme pour préserver le patrimoine culinaire du Bénin (projet ENEAM) et un système de gestion de dossiers médicaux (stage chez Case&co, 2025).",
+    text: "Plateforme pour préserver et partager les recettes et le patrimoine culinaire du Bénin.",
     stack: ["Laravel"],
+  },
+  {
+    title: "DibaHealth",
+    tag: "Santé · Stage chez Case&co, 2025",
+    cat: "Santé",
+    text: "Système de gestion de dossiers médicaux.",
+    stack: [],
   },
   {
     title: "Formulaires pour organisations",
