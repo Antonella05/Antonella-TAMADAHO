@@ -147,18 +147,22 @@ p {
 .ecg-line {
   fill: none;
   stroke: var(--color-cacao);
-  stroke-width: 4;
+  stroke-width: 5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  vector-effect: non-scaling-stroke;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: ecg-draw 2.4s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
 }
 
-@keyframes ecg-draw {
+/* L'ECG se révèle de gauche à droite */
+.ecg-wipe {
+  animation: ecg-wipe 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+
+@keyframes ecg-wipe {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
   to {
-    stroke-dashoffset: 0;
+    clip-path: inset(0 0 0 0);
   }
 }
 
@@ -178,26 +182,6 @@ p {
   }
   25% {
     transform: scale(1.04);
-  }
-}
-
-.spin-slow {
-  animation: spin 24s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.float {
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  50% {
-    transform: translateY(-14px);
   }
 }
 
@@ -281,16 +265,11 @@ button {
   html {
     scroll-behavior: auto;
   }
-  .ecg-line,
+  .ecg-wipe,
   .heart,
-  .spin-slow,
-  .float,
   .reveal,
   .marquee-track {
     animation: none;
-  }
-  .ecg-line {
-    stroke-dashoffset: 0;
   }
   .sticker,
   .sticker:hover,

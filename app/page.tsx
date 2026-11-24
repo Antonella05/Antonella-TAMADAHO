@@ -6,10 +6,10 @@ const LINKEDIN = "https://www.linkedin.com/in/antonella-tamadaho";
 const GITHUB = "https://github.com/Antonella05";
 const EMAIL = "antonellatamadaho@gmail.com";
 
-// Tracé d'ECG (licence graphique)
-const ECG_PATH = "M0 150 L90 150 L120 150 L140 120 L160 150 L185 160 L205 40 L235 250 L255 150 L280 150 Q310 110 340 150 L400 150";
-const HEART_PATH =
-  "M200 330 L180 312 C118 255 78 218 78 172 C78 136 106 108 142 108 C166 108 188 120 200 140 C212 120 234 108 258 108 C294 108 322 136 322 172 C322 218 282 255 220 312 Z";
+// Tracé d'ECG pleine largeur (licence graphique) : trois battements
+const beat = (x: number, h: number) =>
+  `L${x} 70 Q${x + 20} 52 ${x + 40} 70 L${x + 57} 76 L${x + 77} ${70 - h} L${x + 101} 108 L${x + 119} 70 L${x + 145} 70 Q${x + 175} 48 ${x + 205} 70`;
+const ECG_PATH = `M0 70 ${beat(120, 62)} ${beat(480, 50)} ${beat(840, 58)} L1200 70`;
 
 const STACK = ["React", "TypeScript", "Laravel", "Flutter", "React Native", "Tailwind", "Community management"];
 
@@ -68,29 +68,33 @@ export default function Home() {
 
       <main id="top">
         {/* Accueil */}
-        <section aria-labelledby="hero-t" className="relative overflow-hidden px-6 pt-24 pb-10 md:pt-28">
-          <div className="mx-auto grid max-w-6xl items-center gap-8 md:grid-cols-[1.2fr_0.8fr]">
-            <div className="order-last md:order-first">
-              <p className="eyebrow rounded-full border-2 border-cacao bg-sable px-3 py-1">Cotonou, Bénin · Tech de santé et de bien-être</p>
-              <h1 id="hero-t" className="mt-5 text-5xl md:text-7xl">
-                Antonella
-                <br />
-                <span className="relative inline-block">
-                  Tamadaho
-                  <svg viewBox="0 0 400 20" preserveAspectRatio="none" className="absolute -bottom-2 left-0 h-3 w-full text-or" aria-hidden="true">
-                    <path d="M2 14 Q 60 2 120 12 T 240 10 T 398 8" fill="none" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
-                  </svg>
-                </span>
-              </h1>
-              <p className="mt-5 max-w-xl text-lg">
+        <section aria-labelledby="hero-t" className="relative overflow-hidden pt-24 pb-10 md:pt-28">
+          <div className="mx-auto max-w-6xl px-6">
+            <p className="eyebrow rounded-full border-2 border-cacao bg-sable px-3 py-1">Cotonou, Bénin · Tech de santé et de bien-être</p>
+            <h1 id="hero-t" className="mt-5 text-6xl md:text-8xl">
+              Antonella
+              <br className="md:hidden" /> Tamadaho
+            </h1>
+          </div>
+
+          {/* La ligne de vie : un ECG qui traverse toute la page */}
+          <svg viewBox="0 0 1200 120" preserveAspectRatio="xMidYMid slice" className="ecg-wipe my-2 h-16 w-full md:h-24" aria-hidden="true" focusable="false">
+            <path d={ECG_PATH} className="ecg-line" />
+          </svg>
+
+          <div className="mx-auto mt-4 grid max-w-6xl gap-6 px-6 md:grid-cols-2 md:gap-12">
+            <div>
+              <p className="text-xl md:text-2xl">
                 Développeuse full-stack, web et mobile, community manager et gestionnaire de projets informatiques chez UNUSUALL.
               </p>
-              <p className="quote mt-5 text-3xl text-cuivre">Ma technologie au service de la santé mentale.</p>
-              <p className="mt-4 max-w-xl text-cacao/80">
+              <p className="quote mt-4 text-3xl text-cuivre">Ma technologie au service de la santé mentale.</p>
+            </div>
+            <div>
+              <p className="text-cacao/80">
                 Je conçois des outils numériques pour la santé et la santé mentale, pensés pour les réalités du Bénin : connexions lentes,
                 petits écrans, usages locaux.
               </p>
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div className="mt-5 flex flex-wrap gap-3">
                 <a href="#projets" className="btn btn-gold">
                   Voir mes projets →
                 </a>
@@ -98,14 +102,6 @@ export default function Home() {
                   Me contacter
                 </a>
               </div>
-            </div>
-
-            <div className="relative mx-auto w-full max-w-[240px] md:order-last md:max-w-md">
-              <svg viewBox="0 0 400 400" className="float w-full" role="img" aria-label="Un cœur traversé par une ligne d’électrocardiogramme">
-                <circle cx="200" cy="200" r="188" fill="#d4b483" stroke="#1f100a" strokeWidth="5" />
-                <path d={HEART_PATH} fill="#fbf4ea" stroke="#1f100a" strokeWidth="5" strokeLinejoin="round" />
-                <path d={ECG_PATH} pathLength={1} className="ecg-line" transform="translate(0 20)" />
-              </svg>
             </div>
           </div>
         </section>
