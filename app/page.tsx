@@ -121,11 +121,18 @@ export default function Home() {
             <Title id="pourquoi-t" eyebrow="Pourquoi je fais ça">
               Une vocation née d’un silence
             </Title>
-            <blockquote className="quote reveal border-l-[6px] border-cuivre pl-6 text-2xl md:text-3xl">
-              À 13 ans, au CNHUP de Cotonou, un homme enfermé m’a demandé de dire au docteur que l’animal qu’on avait enfermé voulait être
-              libéré. Personne ne m’a écoutée. Ce silence est devenu ma vocation : rendre leur place, par le code et par les mots, à ceux
-              que l’on fait taire.
-            </blockquote>
+            <div className="reveal space-y-5 border-l-[6px] border-cuivre pl-6">
+              <p className="quote text-2xl md:text-3xl">
+                J’avais 13 ans. Au CNHUP de Cotonou, un homme enfermé m’a demandé de dire au docteur que l’animal qu’on avait enfermé voulait
+                être libéré.
+              </p>
+              <p className="quote text-2xl md:text-3xl">Personne ne m’a écoutée.</p>
+              <p className="text-lg md:text-xl">
+                Ce silence ne m’a plus quittée : il est devenu ma vocation. Aujourd’hui, je veux rendre leur place à ceux que l’on fait taire.
+                Je le fais par <strong>le code</strong>, avec des outils pensés pour la santé et la santé mentale, et par{" "}
+                <strong>les mots</strong>, avec mes textes et mes contenus.
+              </p>
+            </div>
           </div>
         </section>
 
