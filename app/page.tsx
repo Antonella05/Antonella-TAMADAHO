@@ -59,7 +59,8 @@ export default function Home() {
 
       <main id="top">
         {/* Accueil */}
-        <section aria-labelledby="hero-t" className="relative overflow-hidden pt-24 pb-10 md:pt-28">
+        <section aria-labelledby="hero-t" className="relative flex min-h-svh flex-col overflow-hidden pt-24">
+          <div className="flex flex-1 flex-col justify-center gap-10 pb-16">
           <div className="mx-auto max-w-6xl px-6">
             <p className="eyebrow rounded-full border-2 border-cacao bg-sable px-3 py-1">Cotonou, Bénin · Tech de santé et de bien-être</p>
             <h1 id="hero-t" className="mt-5 text-6xl md:text-8xl">
@@ -69,7 +70,7 @@ export default function Home() {
           </div>
 
 
-          <div className="mx-auto mt-8 grid max-w-6xl gap-6 px-6 md:grid-cols-2 md:gap-12">
+          <div className="mx-auto grid max-w-6xl gap-6 px-6 md:grid-cols-2 md:gap-12">
             <div>
               <p className="text-xl md:text-2xl">
                 Développeuse full-stack, web et mobile, community manager et co-fondatrice de{" "}
@@ -95,10 +96,8 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
-
-        {/* Technologies */}
-        <div className="marquee -rotate-1 border-y-[2.5px] border-cacao bg-cafe py-4 text-or" aria-label="Compétences">
+          </div>
+        <div className="marquee -rotate-1 mb-8 border-y-[2.5px] border-cacao bg-cafe py-4 text-or" aria-label="Compétences">
           <ul className="marquee-track text-2xl font-bold">
             {marquee.map((s, i) => (
               <li key={i} className="flex items-center gap-12" aria-hidden={i >= STACK.length ? "true" : undefined}>
@@ -107,6 +106,7 @@ export default function Home() {
             ))}
           </ul>
         </div>
+        </section>
 
         {/* Pourquoi */}
         <section aria-labelledby="pourquoi-t" id="pourquoi" className="bg-sable px-6 py-14">
