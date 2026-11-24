@@ -6,10 +6,6 @@ const LINKEDIN = "https://www.linkedin.com/in/antonella-tamadaho";
 const GITHUB = "https://github.com/Antonella05";
 const EMAIL = "antonellatamadaho@gmail.com";
 
-// Tracé d'ECG pleine largeur (licence graphique) : trois battements
-const beat = (x: number, h: number) =>
-  `L${x} 70 Q${x + 20} 52 ${x + 40} 70 L${x + 57} 76 L${x + 77} ${70 - h} L${x + 101} 108 L${x + 119} 70 L${x + 145} 70 Q${x + 175} 48 ${x + 205} 70`;
-const ECG_PATH = `M0 70 ${beat(120, 62)} ${beat(480, 50)} ${beat(840, 58)} L1200 70`;
 
 const STACK = ["React", "TypeScript", "Laravel", "Flutter", "React Native", "Tailwind", "Community management"];
 
@@ -77,15 +73,15 @@ export default function Home() {
             </h1>
           </div>
 
-          {/* La ligne de vie : un ECG qui traverse toute la page */}
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="xMidYMid slice" className="ecg-wipe my-2 h-16 w-full md:h-24" aria-hidden="true" focusable="false">
-            <path d={ECG_PATH} className="ecg-line" />
-          </svg>
 
-          <div className="mx-auto mt-4 grid max-w-6xl gap-6 px-6 md:grid-cols-2 md:gap-12">
+          <div className="mx-auto mt-8 grid max-w-6xl gap-6 px-6 md:grid-cols-2 md:gap-12">
             <div>
               <p className="text-xl md:text-2xl">
-                Développeuse full-stack, web et mobile, community manager et gestionnaire de projets informatiques chez UNUSUALL.
+                Développeuse full-stack, web et mobile, community manager et co-fondatrice de{" "}
+                <a href="https://unusuall.online" target="_blank" rel="noopener noreferrer" className="font-bold underline decoration-or decoration-4 underline-offset-4 hover:bg-or">
+                  UNUSUALL<span className="sr-only"> (ouvre un nouvel onglet)</span>
+                </a>
+                .
               </p>
               <p className="quote mt-4 text-3xl text-cuivre">Ma technologie au service de la santé mentale.</p>
             </div>
